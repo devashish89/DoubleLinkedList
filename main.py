@@ -4,8 +4,9 @@ class Node:
     def __init__(self, data=None, prev=None, next=None):
         # arguments with default should be last
         self.prev = None
-        self.data= data
+        self.data = data
         self.next = None
+
 
 class DoubleLinkedList:
     def __init__(self, head=None, tail=None):
@@ -23,7 +24,6 @@ class DoubleLinkedList:
             self.head = Node
             Node.prev = None
 
-
     def insertAtEnd(self, Node):
         if self.head is None:
             self.insertAtBeginning(Node)
@@ -34,7 +34,6 @@ class DoubleLinkedList:
             Node.prev = itr
             Node.next = None
             self.tail = Node
-
 
     def get_length(self):
         counter = 0
@@ -47,10 +46,10 @@ class DoubleLinkedList:
                 itr = itr.next
             return counter
 
-    def insertAt(self,index, Node):
+    def insertAt(self, index, Node):
         if index == 0:
             self.insertAtBeginning(Node)
-        elif index == self.get_length()-1:
+        elif index == self.get_length() - 1:
             self.insertAtEnd(Node)
         else:
             counter = 0
@@ -68,14 +67,14 @@ class DoubleLinkedList:
 
     def removeAt(self, index):
         print(self.get_length())
-        if index<0 or index>= self.get_length():
+        if index < 0 or index >= self.get_length():
             raise Exception("index out of bounds")
         else:
             if index == 0:
                 self.head = self.head.next
                 self.head.prev = None
 
-            elif index == self.get_length()-1:
+            elif index == self.get_length() - 1:
                 itr = self.tail
                 prev_itr = itr.prev
                 prev_itr.next = None
@@ -95,7 +94,6 @@ class DoubleLinkedList:
                     itr = itr.next
                     counter += 1
 
-
     def print_forward(self):
         if self.head is None:
             print("Empty Double LinkedList")
@@ -114,7 +112,6 @@ class DoubleLinkedList:
             while itr is not None:
                 print(itr.data, end="<=>")
                 itr = itr.prev
-
 
 
 dblllist = DoubleLinkedList()
